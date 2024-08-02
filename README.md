@@ -88,6 +88,14 @@ This Machine Learning Project was developed as the fifth portfolio project durin
 |YearRemodAdd|Remodel date (same as construction date if no remodelling or additions)|1950 - 2010|
 |SalePrice|Sale Price|34900 - 755000|
 
+### **Project Terms and Jargon**
+
+* **Sale price** of a house refers to the current market price of a house with certain attributes.
+
+* **Inherited house** is a house that the client inherited from grandparents.
+
+* **Summed price** is the total of the sale prices of the four inherited houses.
+
 ## **3. Business Requirements**
 
 Our client, who has inherited four houses in Ames, Iowa, has requested our assistance in maximizing the sales price for these properties. Despite her excellent understanding of property prices in her own state and residential area, she is concerned that relying on her current knowledge may lead to inaccurate appraisals, as the factors that make a house desirable and valuable in her area may differ from those in Ames, Iowa.
@@ -167,9 +175,13 @@ These steps can be matched up nicely to 6 Epics in the Agile development process
 
 **US5:** As a client, I want to have a user-friendly dashboard to input house data and receive predicted sale prices, so that I can easily make informed decisions about pricing and selling. (Business Requirement Covered: BR2)
 
-## Hypothesis and how to validate?
+## **4. Hypotheses and Validation**
 
-* List here your project hypothesis(es) and how you envision validating it (them).
+We propose the following hypotheses to explain the relationship between house attributes and sale price:
+
+1.  **Size Hypothesis:** Larger properties tend to have higher sale prices. We will investigate correlations between attributes related to house size (e.g. square footage, number of bedrooms) and sale price to validate this hypothesis.
+2. **Quality Hypothesis:** Higher quality ratings are associated with higher sale prices. We will examine correlations between variables related to house quality (e.g. kitchen quality, overall quality) and sale price to test this hypothesis.
+3. **Time Hypothesis:** The age of the property and recent renovations can significantly impact its value. We will study the relationship between the year the house was built, recent remodels, and sale price to validate this hypothesis.
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 
