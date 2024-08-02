@@ -254,10 +254,60 @@ Our model will be useful for our client, who wants to predict the sale price of 
 <img src="docs/screenshots/pipeline steps.png">
 </details>
 
-## Dashboard Design
+## **7. Dashboard Design**
 
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items that your dashboard library supports.
-* Eventually, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but eventually you needed to use another plot type)
+Our dashboard is designed to provide an intuitive and user-friendly interface for our client to explore the relationships between house attributes and sale prices, as well as to predict the sale price of her inherited houses and other houses in Ames, Iowa.
+
+### **Page 1: Project Overview**
+
+This page provides a brief introduction to the project, including:
+
+- A summary of the project's objectives and goals
+- Definitions of key terms and concepts used in the project
+- An overview of the dataset used, including its source and characteristics
+- A statement of the business requirements and how they are addressed in the project
+- Links to additional resources and information
+
+[Insert screenshot of Page 1]
+
+### **Page 2: Correlation Analysis**
+
+This page provides an in-depth analysis of the relationships between house attributes and sale prices. The page includes:
+
+- A feature to display a sample of data from the dataset
+- Options to view Pearson and Spearman correlation plots between the features and the sale price
+- Options to view histograms and scatterplots of the most important predictive features
+- A feature to view Predictive Power Score analysis
+
+[Insert screenshots of correlation analysis plots]
+
+### **Page 3: Sale Price Prediction**
+
+This page allows our client to predict the sale price of her inherited houses and other houses in Ames, Iowa. The page includes:
+
+- An input feature to enter property attributes and generate a predicted sale price
+- A display of the predicted sale price
+- A feature to predict the sale prices of the client's specific data in relation to her inherited properties
+
+[Insert screenshot of Page 3]
+
+### **Page 4: Hypothesis Validation**
+
+This page presents the results of our hypothesis validation, including:
+
+- A list of the project's hypotheses and how they were validated
+
+[Insert screenshot of Page 4]
+
+### **Page 5: Machine Learning Model**
+
+This page provides an overview of the machine learning model used to predict the sale price of houses. The page includes:
+
+- Information on the ML pipeline used to train the model
+- A demonstration of feature importance
+- A review of the pipeline performance
+
+[Insert screenshots of Page 5]
 
 ## Unfixed Bugs
 
