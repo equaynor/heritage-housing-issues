@@ -1,35 +1,3 @@
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-## Template Instructions
-
-Welcome,
-
-This is the Code Institute student template for the Heritage Housing project option in Predictive Analytics. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
-
-You can safely delete the Template Instructions section of this README.md file,  and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
-
-## How to use this repo
-
-1. Use this template to create your GitHub project repo
-
-2. Log into the cloud-based IDE with your GitHub account.
-
-3. On your Dashboard, click on the Create button
-
-4. Paste in the URL you copied from GitHub earlier
-
-5. Click Create
-
-6. Wait for the workspace to open. This can take a few minutes.
-
-7. Open a new terminal and `pip3 install -r requirements.txt`
-
-11. Open the jupyter_notebooks directory and click on the notebook you want to open.
-
-12. Click the kernel button and choose Python Environments.
-
-Note that the kernel says Python 3.8.18 as it inherits from the workspace so it will be Python-3.8.18 as installed by our template. To confirm this you can use `! python --version` in a notebook code cell.
-
 ## Cloud IDE Reminders
 
 To log into the Heroku toolbelt CLI:
@@ -42,7 +10,53 @@ To log into the Heroku toolbelt CLI:
 
 You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with *Regenerate API Key*.
 
-## Dataset Content
+# Heritage Housing Issues
+
+**Data Analysis and Predictive Modelling Study**
+
+**Developed by: Emmanuel Quaynor**
+
+![I am responsive image](#)
+
+**Live Site:** [Live webpage](#)
+
+**Link to Repository:** [Repository](https://github.com/equaynor/heritage-housing-issues)
+
+
+## Table of Contents
+
+1. [Introduction](#1-introduction)
+2. [Dataset Content](#2-dataset-content)
+3. [Business Requirements](#3-business-requirements)
+    - [CRISP-DM Workflow](#crisp-dm-workflow)
+    - [User Stories](#user-stories)
+4. [Hypotheses and Validation](#4-hypotheses-and-validation) 
+5. [Rationale to map the business requirements to the Data Visualizations and ML tasks](#5-rationale-to-map-the-business-requirements-to-the-data-visualizations-and-ml-tasks)
+6. [ML Business Case](#6-ml-business-case)
+7. [Dashboard Design](#7-dashboard-design)
+    - [Page 1: Project Summary](#page-1-project-summary)
+    - [Page 2: Sale Price Correlation Analysis](#page-2-sale-price-correlation-analysis)
+    - [Page 3: Sale Price Prediction](#page-3-sale-price-prediction)
+    - [Page 4: Hypothesis and Validation](#page-4-hypothesis-and-validation)
+    - [Page 5: Machine Learning Model](#page-5-machine-learning-model)
+8. [Unfixed Bugs](#8-unfixed-bugs)
+9. [PEP8 Compliance Testing](#9-pep8-compliance-testing)
+10. [Deployment](#10-deployment)
+11. [Technologies](#11-technologies)
+    - [Development and Deployment](#development-and-deployment)
+    - [Main Data Analysis and Machine Learning](#main-data-analysis-and-machine-learning)
+12. [Credits](#12-credits)
+    - [Sources of code](#sources-of-code)
+    - [Media](#media)
+13. [Acknowledgements](#13-acknowledgements)
+
+## **1. Introduction**
+
+Welcome to the Heritage Housing Issues project, a data science initiative aimed at predicting the sale price of houses in Ames, Iowa. The goal of this project is to develop a machine learning model that can accurately estimate the sale price of houses based on various attributes, including features such as size, quality, and condition.
+
+This Machine Learning Project was developed as the fifth portfolio project during the Code Insititute's Diploma in Full Stack Development. It covers the Predictive Analytics specialization.
+
+## **2. Dataset Content**
 
 * The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data). We then created a fictitious user story where predictive analytics can be applied in a real project in the workplace.
 * The dataset has almost 1.5 thousand rows and represents housing records from Ames, Iowa, indicating house profile (Floor Area, Basement, Garage, Kitchen, Lot, Porch, Wood Deck, Year Built) and its respective sale price for houses built between 1872 and 2010.
@@ -74,14 +88,17 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 |YearRemodAdd|Remodel date (same as construction date if no remodelling or additions)|1950 - 2010|
 |SalePrice|Sale Price|34900 - 755000|
 
-## Business Requirements
+## **3. Business Requirements**
 
-As a good friend, you are requested by your friend, who has received an inheritance from a deceased great-grandfather located in Ames, Iowa, to  help in maximising the sales price for the inherited properties.
+Our client, who has inherited four houses in Ames, Iowa, has requested our assistance in maximizing the sales price for these properties. Despite her excellent understanding of property prices in her own state and residential area, she is concerned that relying on her current knowledge may lead to inaccurate appraisals, as the factors that make a house desirable and valuable in her area may differ from those in Ames, Iowa.
 
-Although your friend has an excellent understanding of property prices in her own state and residential area, she fears that basing her estimates for property worth on her current knowledge might lead to inaccurate appraisals. What makes a house desirable and valuable where she comes from might not be the same in Ames, Iowa. She found a public dataset with house prices for Ames, Iowa, and will provide you with that.
+Our client has provided us with a public dataset containing house prices for Ames, Iowa. We have agreed to support her in addressing the following business requirements:
 
-* 1 - The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualisations of the correlated variables against the sale price to show that.
-* 2 - The client is interested in predicting the house sale price from her four inherited houses and any other house in Ames, Iowa.
+* **BR1:** The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualizations of the correlated variables against the sale price to show that.
+
+* **BR2:** The client is interested in predicting the house sales price from her 4 inherited houses, and any other house in Ames, Iowa.
+
+To address these business requirements, we will break down the project into manageable epics and user stories. Each user story will be further divided into tasks, which will be implemented using an agile process. This approach will enable us to deliver a high-quality solution that meets our client's needs and expectations.
 
 ## Hypothesis and how to validate?
 
