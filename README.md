@@ -100,6 +100,73 @@ Our client has provided us with a public dataset containing house prices for Ame
 
 To address these business requirements, we will break down the project into manageable epics and user stories. Each user story will be further divided into tasks, which will be implemented using an agile process. This approach will enable us to deliver a high-quality solution that meets our client's needs and expectations.
 
+### CRISP-DM Workflow
+
+#### **Epic 1: Business Understanding (CRISP-DM Phase 1)**
+
+---
+
+- **Define the Problem**: Clearly articulate the problem statement and identify the client's (Lydia's) goals and objectives.
+- **Create User Stories**: Break down the project requirements into smaller, manageable tasks.
+- **Create hypotheses and validations**: Define hypotheses and validate them.
+
+#### **Epic 2: Data Understanding (CRISP-DM Phase 2)**
+
+---
+
+- **Collect and Load the Dataset**: Load the dataset and explore its structure, content, and summary statistics.
+- **Explore the Data**: Use visualization and summary statistics to understand the distribution of variables and their relationships.
+- **Identify Missing Values and Handle Them**: Detect and handle missing values in the dataset.
+- **Document the Data**: Document the data, including its sources, quality, and limitations.
+
+#### **Epic 3: Data Preparation (CRISP-DM Phase 3)**
+
+---
+
+- **Clean the Data**: Clean the dataset by handling outliers, encoding categorical variables, and scaling/normalizing numerical variables.
+- **Feature Engineering**: Create new features that might be relevant for the model (e.g., feature interactions, transformations).
+- **Split the Data**: Split the dataset into training, validation, and testing sets.
+- **Document the Data Preparation**: Document the data preparation steps, including data cleaning, feature engineering, and data splitting.
+
+#### **Epic 4: Modeling (CRISP-DM Phase 4)**
+
+---
+
+- **Choose a Model**: Select a suitable machine learning algorithm for the problem (e.g., linear regression, decision trees, random forest).
+- **Train the Model**: Train the model on the training data.
+- **Evaluate the Model**: Evaluate the model's performance on the validation data using metrics such as mean squared error, R-squared, etc.
+- **Hyperparameter Tuning**: Perform hyperparameter tuning to optimize the model's performance.
+
+#### **Epic 5: Evaluation (CRISP-DM Phase 5)**
+
+---
+
+- **Evaluate the Model's Performance**: Evaluate the model's performance on the testing data.
+- **Compare Models**: Compare the performance of different models and select the best one.
+- **Refine the Model**: Refine the model by incorporating additional features, handling outliers, or using different algorithms.
+
+#### **Epic 6: Deployment (CRISP-DM Phase 6)**
+
+---
+
+- **Create a Dashboard**: Create a dashboard to visualize the model's predictions and insights.
+- **Deploy the Model**: Deploy the model in a production-ready environment (e.g., Flask, Django, Streamlit).
+- **Monitor and Update the Model**: Monitor the model's performance and update it as necessary to maintain its accuracy.
+
+These steps can be matched up nicely to 6 Epics in the Agile development process. As we move along the pipeline of the development process we may flow back and forth between stages/epics as we learn new insight and have to revisit previous step in order to refine the development. While ultimately moving towards the final delivery of a product that satisfies the users/clients requirements.
+
+### User Stories
+
+**US1:** As a client, I want to discover which attributes of a house are most correlated with its sale price, so that I can understand the key drivers of sale price. (Business Requirement Covered: BR1)
+
+**US2:** As a client, I want to have a reliable prediction of the sale price of my inherited houses, so that I can sell them at the maximum total price possible. (Business Requirement Covered: BR2)
+
+**US3:** As a technical user, I want to understand the machine learning model used to predict the sale price, so that I can trust the accuracy of the predictions. (Business Requirement Covered: BR2)
+
+**US4:** As a client, I want to visualize the relationships between sale price and other features, so that I can gain insights into the importance of different attributes. (Business Requirement Covered: BR1)
+
+**US5:** As a client, I want to have a user-friendly dashboard to input house data and receive predicted sale prices, so that I can easily make informed decisions about pricing and selling. (Business Requirement Covered: BR2)
+
 ## Hypothesis and how to validate?
 
 * List here your project hypothesis(es) and how you envision validating it (them).
