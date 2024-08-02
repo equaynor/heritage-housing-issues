@@ -183,13 +183,76 @@ We propose the following hypotheses to explain the relationship between house at
 2. **Quality Hypothesis:** Higher quality ratings are associated with higher sale prices. We will examine correlations between variables related to house quality (e.g. kitchen quality, overall quality) and sale price to test this hypothesis.
 3. **Time Hypothesis:** The age of the property and recent renovations can significantly impact its value. We will study the relationship between the year the house was built, recent remodels, and sale price to validate this hypothesis.
 
-## The rationale to map the business requirements to the Data Visualisations and ML tasks
+## **5. Rationale to map the business requirements to the Data Visualisations and ML tasks**
 
-* List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
+- **Business Requirement 1 (BR1):** Data Visualization and Correlation Study
+    
+    - We will analyze the distribution of sale prices in the dataset to gain insights into its characteristics.
+    - We will investigate the relationships between various attributes and sale prices using Pearson and Spearman correlation analysis.
+    - We will visualize the key variables to understand their impact on sale prices.
+    - The [Correlation Study notebook](#) addresses this business requirement.
 
-## ML Business Case
+- **Business Requirement 2 (BR2):** Regression Analysis
+    
+    - Since the target variable is continuous, we will employ regression analysis to predict sale prices. If the model performance is poor, we may consider alternative approaches.
+    - We aim to identify the most influential attributes driving sale prices, enabling our customer to optimize pricing strategies. We may use Principal Component Analysis (PCA) to identify these variables.
+    - The [Modeling and Evaluation notebook](#) addresses this business requirement.
 
-* In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
+
+## **6. ML Business Case**
+
+### **Predict Sale Price**
+#### **Regression Model**
+
+We want an ML model to predict the sale price of houses in Ames, Iowa. The target variable is a continuous number, and we will use a regression model to achieve this goal.
+
+**Ideal Outcome**
+
+Our ideal outcome is to provide our client with a reliable tool to predict the sale price of her inherited houses, as well as any other house with similar attributes. This will enable her to make informed decisions about pricing and selling her properties.
+
+**Model Success Metrics**
+
+The model success metrics are:
+
+- At least 0.75 for R2 score, on both train and test sets
+- The model is considered a failure if its predictions are off by more than 25% of the time
+
+**Output**
+
+The output is defined as a continuous value representing the sale price in USD.
+
+**Heuristics**
+
+Our Belgian client, unfamiliar with local property prices, feared her limited knowledge might lead to inaccurate appraisals. She sought our help to maximize the sale price. We employ Machine Learning models and regression algorithms, rather than unreliable heuristics, to ensure accurate property valuation.
+
+**Training Data**
+
+The training data to fit the model comes from a public dataset from Ames, Iowa, which contains approximately 1.5 thousand property sales records and 22 features. We will preprocess the data by dropping variables with more than 75% missing values and selecting the remaining variables as features.
+
+  * Train data: drop variables 'EnclosedPorch' and 'WooddeckSF' because each has more than 75% missing values. 
+
+  * Target variable: SalePrice 
+
+  * Features: all remaining variables.
+
+**Pipeline Steps**
+
+Our pipeline will consist of the following steps:
+
+- Data preprocessing
+- Feature selection
+- Model training and testing
+- Model deployment and maintenance
+
+**Application**
+
+Our model will be useful for our client, who wants to predict the sale price of her inherited houses, as well as for other users who want to estimate the sale price of their own properties. The model can be accessed online, and users can input data for their homes to get a predicted sale price.
+
+
+<details>
+<summary> Pipeline steps</summary>
+<img src="docs/screenshots/pipeline steps.png">
+</details>
 
 ## Dashboard Design
 
