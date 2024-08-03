@@ -78,11 +78,18 @@ def page_correlation_analysis_body():
     if st.checkbox("Sale Price per Correlating Variable"):
         sale_price_per_variable(df_eda)
 
-    # Parallel plot
-    # if st.checkbox("Parallel Plot"):
-    #     st.write(
-    #         f"* Information in yellow indicates the profile from a churned customer")
-    #     parallel_plot_churn(df_eda)
+    # Pearson and Spearman Correlations
+    if st.checkbox("Pearson Correlation"):
+        calc_display_pearson_corr_heat(df)
+        calc_display_pearson_corr_bar(df)
+
+    if st.checkbox("Spearman Correlation"):
+        calc_display_spearman_corr_heat(df)
+        calc_display_spearman_corr_bar(df)
+
+    if st.checkbox("Predictive Power Score"):
+        calc_display_pps_matrix(df)
+
 
 def plot_target_hist(df, target_var):
   """
@@ -150,3 +157,87 @@ def corr_lm_plot(df, col, target_var):
   sns.lmplot(data=df, x=col, y=target_var, height=6, aspect=1.5)
   plt.title(f"{col}", fontsize=20, y=1.05)
   st.pyplot(fig)  # st.pyplot() renders image, in notebook is plt.show()
+
+
+def calc_display_pearson_corr_heat(df):
+    """ Calcuate and display Pearson Correlation """
+    df_corr_pearson = df.corr(method="pearson")
+    heatmap_corr(df=df_corr_pearson, threshold=0.4,
+                 figsize=(12, 10), font_annot=10)
+
+
+def calc_display_spearman_corr_heat(df):
+    """ Calcuate and display Spearman Correlation """
+    df_corr_spearman = df.corr(method="spearman")
+    heatmap_corr(df=df_corr_spearman, threshold=0.4,
+                 figsize=(12, 10), font_annot=10)
+
+
+def calc_display_pearson_corr_bar(df):
+    """ Calcuate and display Pearson Correlation """
+    corr_pearson = df.corr(method='pearson')['SalePrice'].sort_values(
+        key=abs, ascending=False)[1:]
+    fig, axes = plt.subplots(figsize=(6, 3))
+    plt.bar(x=corr_pearson[:5].index, height=corr_pearson[:5])
+    plt.title("Pearson Correlation with Sale Price", fontsize=14, y=1.05)
+    st.pyplot(fig)
+
+
+def calc_display_spearman_corr_bar(df):
+    """ Calcuate and display Spearman Correlation """
+    corr_spearman = df.corr(method='spearman')['SalePrice'].sort_values(
+        key=abs, ascending=False)[1:]
+    fig, axes = plt.subplots(figsize=(6, 3))
+    plt.bar(x=corr_spearman[:5].index, height=corr_spearman[:5])
+    plt.title("Spearman Correlation with Sale Price", fontsize=14, y=1.05)
+    st.pyplot(fig)
+
+
+def heatmap_corr(df,threshold, figsize=(20,12), font_annot = 8):
+  """
+  Function to create heatmap using correlations.
+  """
+  if len(df.columns) > 1:
+    mask = np.zeros_like(df, dtype=np.bool)
+    mask[np.triu_indices_from(mask)] = True
+    mask[abs(df) < threshold] = True
+
+    fig, axes = plt.subplots(figsize=figsize)
+    sns.heatmap(df, annot=True, xticklabels=True, yticklabels=True,
+                mask=mask, cmap='viridis', annot_kws={"size": font_annot}, ax=axes,
+                linewidth=0.5
+                     )
+    axes.set_yticklabels(df.columns, rotation = 0)
+    plt.ylim(len(df.columns),0)
+    st.pyplot(fig)
+
+
+def heatmap_pps(df, threshold, figsize=(20, 12), font_annot=8):
+    """ Heatmap for predictive power score from CI template"""
+    if len(df.columns) > 1:
+        mask = np.zeros_like(df, dtype=bool)
+        mask[abs(df) < threshold] = True
+        fig, axes = plt.subplots(figsize=figsize)
+        ax = sns.heatmap(df, annot=True, xticklabels=True, yticklabels=True,
+                           mask=mask, cmap='rocket_r',
+                           annot_kws={"size": font_annot},
+                           linewidth=0.05, linecolor='grey')
+        plt.ylim(len(df.columns), 0)
+        st.pyplot(fig)
+
+
+def calc_display_pps_matrix(df):
+    """ Calcuate and display Predictive Power Score """
+    pps_matrix_raw = pps.matrix(df)
+    pps_matrix = pps_matrix_raw.filter(['x', 'y', 'ppscore']).pivot(
+        columns='x', index='y', values='ppscore')
+    heatmap_pps(df=pps_matrix, threshold=0.2, figsize=(12, 10), font_annot=10)
+
+    topscores = pps_matrix.iloc[19].sort_values(
+        key=abs, ascending=False)[1:6]
+
+    fig, axes = plt.subplots(figsize=(6, 3))
+    plt.bar(x=topscores.index, height=topscores)
+    plt.xticks(rotation=90)
+    plt.title("Predictive Power Score for Sale Price", fontsize=14, y=1.05)
+    st.pyplot(fig)
