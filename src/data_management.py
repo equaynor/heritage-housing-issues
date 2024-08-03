@@ -4,7 +4,7 @@ import numpy as np
 import joblib
 
 @st.cache(suppress_st_warning=True, allow_output_mutation=True)
-def load_telco_data():
+def load_house_prices_data():
     df = pd.read_csv("outputs/datasets/collection/house_prices.csv")
     return df
 
