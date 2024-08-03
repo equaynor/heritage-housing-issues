@@ -2,27 +2,35 @@ import plotly.express as px
 import numpy as np
 from feature_engine.discretisation import ArbitraryDiscretiser
 import streamlit as st
-from src.data_management import load_telco_data
+from src.data_management import load_house_prices_data
 
 import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set_style("whitegrid")
 
 
-def page_churned_customer_study_body():
+def page_correlation_analysis_body():
 
     # load data
-    df = load_telco_data()
+    df = load_house_prices_data()
 
-    # hard copied from churned customer study notebook
-    vars_to_study = ['Contract', 'InternetService',
-                     'OnlineSecurity', 'TechSupport', 'tenure']
+    # from correlation study notebook
+    vars_to_study = ['1stFlrSF',
+                     'GarageArea',
+                     'GrLivArea',
+                     'KitchenQual_TA',
+                     'OverallQual',
+                     'TotalBsmtSF',
+                     'YearBuilt',
+                     'YearRemodAdd']
 
-    st.write("### Churned Customer Study")
-    st.info(
-        f"* The client is interested in understanding the patterns from the customer base "
-        f"so that the client can learn the most relevant variables correlated "
-        f"to a churned customer.")
+    st.write("### Sale Price Correlation Analysis")
+    st.success(
+        f"* The client is interested in discovering\
+            how the house attributes correlate with the sale price.\
+            Therefore, the client expects data visualisations of the correlated variables\
+            against the sale price to show that."
+    )
 
     # inspect data
     if st.checkbox("Inspect Customer Base"):
