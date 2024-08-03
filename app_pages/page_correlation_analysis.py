@@ -2,17 +2,20 @@ import plotly.express as px
 import numpy as np
 from feature_engine.discretisation import ArbitraryDiscretiser
 import streamlit as st
-from src.data_management import load_house_prices_data
+from src.data_management import load_cleaned_house_prices_data
 
 import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set_style("whitegrid")
+import ppscore as pps
+
+from feature_engine.encoding import OneHotEncoder
 
 
 def page_correlation_analysis_body():
 
     # load data
-    df = load_house_prices_data()
+    df = load_cleaned_house_prices_data()
 
     # from correlation study notebook
     vars_to_study = ['1stFlrSF',
@@ -60,10 +63,13 @@ def page_correlation_analysis_body():
     #     f"* A churned customer typically has low tenure levels. \n"
     # )
 
-    df_eda = df.filter(vars_to_study + ['SalePrice'])
+    encoder = OneHotEncoder(variables=df.columns[df.dtypes=='object'].to_list(), drop_last=False)
+    df_ohe = encoder.fit_transform(df)
+    # Code copied from "03_correlation_study" notebook - "EDA of chosen variables" section
+    df_eda = df_ohe.filter(list(vars_to_study) + ['SalePrice'])
     target_var = 'SalePrice'
 
-    st.write("#### Data Visualizations")
+    st.write("#### Data Visualizations \n")
     # Distribution of target variable
     if st.checkbox("Distribution of Sale Prices"):
         plot_target_hist(df_eda, target_var) 
@@ -83,14 +89,16 @@ def plot_target_hist(df, target_var):
   Function to plot a histogram of the target and
   save the figure to folder.
   """
-  plt.figure(figsize=(12, 5))
+  fig, axes = plt.subplots(figsize=(12, 5))
   sns.histplot(data=df, x=target_var, kde=True)
   plt.title(f"Distribution of {target_var}", fontsize=20)
   st.pyplot(fig)  # st.pyplot() renders image, in notebook is plt.show()
 
+
 # function created using "03_correlation_study" notebook code - "Distribution of SalePrice" section
 def sale_price_per_variable(df_eda):
     target_var = 'SalePrice'
+    time = ['YearBuilt', 'YearRemodAdd']
     # from correlation study notebook
     vars_to_study = ['1stFlrSF',
                      'GarageArea',
@@ -113,6 +121,7 @@ def sale_price_per_variable(df_eda):
                 corr_lm_plot(df_eda, col, target_var)
                 print("\n\n")
 
+
 def corr_line_plot(df, col, target_var):
   """
   Line plots of target variable vs time variables (years)
@@ -121,6 +130,7 @@ def corr_line_plot(df, col, target_var):
   sns.lineplot(data=df, x=col, y=target_var)
   plt.title(f"{col}", fontsize=20, y=1.05)
   st.pyplot(fig)  # st.pyplot() renders image, in notebook is plt.show()
+
 
 def corr_box_plot(df, col, target_var):
   """
@@ -131,10 +141,12 @@ def corr_box_plot(df, col, target_var):
   plt.title(f"{col}", fontsize=20, y=1.05)
   st.pyplot(fig)  # st.pyplot() renders image, in notebook is plt.show()
 
+
 def corr_lm_plot(df, col, target_var):
   """
   Linear regression plots of target variable vs continuous features"
   """
+  fig, axes = plt.subplots(figsize=(10, 5))
   sns.lmplot(data=df, x=col, y=target_var, height=6, aspect=1.5)
   plt.title(f"{col}", fontsize=20, y=1.05)
   st.pyplot(fig)  # st.pyplot() renders image, in notebook is plt.show()
