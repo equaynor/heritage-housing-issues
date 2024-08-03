@@ -15,6 +15,15 @@ def predict_sale_price(X_live, house_features, sale_price_pipeline):
         f"  predicted a sale value of:"
     )
 
-    st.write(statement)
+    statement_inheritance = (
+        f"* Given the values of the inherited properties features, the model has "
+        f"  predicted a sale value of: {round(sale_price_prediction[0])}"
+    )
+
+    if len(sale_price_prediction) == 1:
+        st.write(statement)
+    else:
+        st.write(statement_inheritance)
+    
 
     return sale_price_prediction
