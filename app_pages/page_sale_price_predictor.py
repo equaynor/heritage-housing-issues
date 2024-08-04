@@ -38,7 +38,7 @@ def page_sale_price_predictor_body():
     if st.button("Value Inherited Houses"):
         predictions = predict_sale_price(inherited_data, features, model)
         total_value = np.sum(predictions)
-        st.success(f"Total Value of Inherited Houses: ${total_value:,.2f}")
+        st.success(f"Total Predicted Value of Inherited Houses: ${total_value:,.2f}")
 
 def get_user_input():
     # We load the dataset to get feature ranges
