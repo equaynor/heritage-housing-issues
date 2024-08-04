@@ -1,25 +1,34 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from src.data_management import load_house_prices_data, load_heritage_data, load_pkl_file
+from src.data_management import (
+    load_house_prices_data,
+    load_heritage_data,
+    load_pkl_file)
 from src.machine_learning.predictive_analysis_ui import predict_sale_price
+
 
 def page_sale_price_predictor_body():
     """
     Displays a Streamlit page for predicting house prices in Ames, Iowa.
     """
     st.write("# House Price Predictor")
-    
+
     st.info(
-        "This tool allows you to predict house prices in Ames, Iowa based on key features. "
-        "It addresses Business Requirement 2: predicting sale prices for inherited houses "
-        "and other properties in the area."
+        "This tool allows you to predict house prices in Ames,\
+        Iowa based on key features. "
+        "It addresses Business Requirement 2: predicting sale prices\
+        for inherited houses and other properties in the area."
     )
 
     # Load prediction model and features
-    version = 'v1'
-    model = load_pkl_file(f"outputs/ml_pipeline/predict_sale_price/{version}/regression_pipeline.pkl")
-    features = pd.read_csv(f"outputs/ml_pipeline/predict_sale_price/{version}/X_train.csv").columns.tolist()
+    vsn = 'v1'
+    model = load_pkl_file(
+        f"outputs/ml_pipeline/predict_sale_price/{vsn}/regression_pipeline.pkl"
+        )
+    features = pd.read_csv(
+        f"outputs/ml_pipeline/predict_sale_price/{vsn}/X_train.csv"
+        ).columns.tolist()
 
     # User input section
     st.write("## Enter House Details")
@@ -40,16 +49,19 @@ def page_sale_price_predictor_body():
     if st.button("Value Inherited Houses"):
         predictions = predict_sale_price(inherited_data, features, model)
         total_value = np.sum(predictions)
-        st.success(f"Total Predicted Value of Inherited Houses: ${total_value:,.2f}")
+        st.success(
+            f"Total Predicted Value of Inherited Houses: ${total_value:,.2f}")
+
 
 def DrawInputsWidgets():
     """
-    Creates a Streamlit interface to collect user input for house price prediction.
+    Creates a Streamlit interface to collect user input for\
+    house price prediction.
     Returns a DataFrame with user-provided values for selected features.
     """
     # We load the dataset to get feature ranges
     df = load_house_prices_data()
-    
+
     # We set percentage limits for min and max values
     percent_min, percent_max = 0.2, 2.5
 
