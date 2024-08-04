@@ -5,7 +5,9 @@ from src.data_management import load_house_prices_data, load_heritage_data, load
 from src.machine_learning.predictive_analysis_ui import predict_sale_price
 
 def page_sale_price_predictor_body():
-
+    """
+    Displays a Streamlit page for predicting house prices in Ames, Iowa.
+    """
     st.write("# House Price Predictor")
     
     st.info(
@@ -41,6 +43,10 @@ def page_sale_price_predictor_body():
         st.success(f"Total Predicted Value of Inherited Houses: ${total_value:,.2f}")
 
 def get_user_input():
+    """
+    Creates a Streamlit interface to collect user input for house price prediction.
+    Returns a DataFrame with user-provided values for selected features.
+    """
     # We load the dataset to get feature ranges
     df = load_house_prices_data()
     
