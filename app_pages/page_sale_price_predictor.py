@@ -14,12 +14,13 @@ def page_sale_price_predictor_body():
     )
 
     # Load prediction model and features
-    model = load_pkl_file("outputs/ml_pipeline/predict_price/regression_model.pkl")
-    features = pd.read_csv("outputs/ml_pipeline/predict_price/model_features.csv").columns.tolist()
+    version = 'v1'
+    model = load_pkl_file(f"outputs/ml_pipeline/predict_sale_price/{version}/regression_pipeline.pkl")
+    features = pd.read_csv(f"outputs/ml_pipeline/predict_sale_price/{version}/X_train.csv").columns.tolist()
 
     # User input section
     st.write("## Enter House Details")
-    user_input = get_user_input(features)
+    user_input = get_user_input()
 
     if st.button("Predict Price"):
         prediction = predict_sale_price(user_input, features, model)
@@ -38,14 +39,14 @@ def page_sale_price_predictor_body():
 
 def get_user_input():
     # We load the dataset to get feature ranges
-    df = load_housing_data()
+    df = load_house_prices_data()
     
     # We set percentage limits for min and max values
     percent_min, percent_max = 0.2, 2.5
 
     # We create a layout with two columns
-    col1, col2 = st.columns(2)
-    col3, col4 = st.columns(2)
+    col1, col2 = st.beta_columns(2)
+    col3, col4 = st.beta_columns(2)
 
     # We initialize an empty DataFrame for live data
     user_input = pd.DataFrame([], index=[0])
@@ -73,23 +74,23 @@ def get_user_input():
         )
         user_input[feature] = widget
 
-    with col03:
+    with col3:
         feature = "2ndFlrSF"
         widget = st.number_input(
             label='2nd Floor SQFT',
-            min_value=int(df[feature].min()*percentageMin),
-            max_value=int(df[feature].max()*percentageMax),
+            min_value=int(df[feature].min() * percent_min),
+            max_value=int(df[feature].max() * percent_max),
             value=int(df[feature].median()),
             step=20
         )
         user_input[feature] = widget
 
-    with col04:
+    with col4:
         feature = "GarageArea"
         widget = st.number_input(
             label="Garage Area SQFT",
-            min_value=int(df[feature].min()*percentageMin),
-            max_value=int(df[feature].max()*percentageMax),
+            min_value=int(df[feature].min() * percent_min),
+            max_value=int(df[feature].max() * percent_max),
             value=int(df[feature].median()),
             step=20
         )
