@@ -8,6 +8,9 @@ from src.machine_learning.evaluate_reg import (
 
 
 def page_predict_price_ml_body():
+    """
+    Displays  ML pipeline information.
+    """
 
     version = 'v1'
     # load needed files
