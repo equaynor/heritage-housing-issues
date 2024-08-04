@@ -51,14 +51,6 @@ def page_predict_price_ml_body():
     st.write(X_train.columns.to_list())
     st.image(sale_price_feat_importance)
 
-    st.write(
-        f"The model was ultimately trained on  the following four features: \n"
-        f"* Overall Quality (OverallQual) \n"
-        f"* Total Basement Area in squarefeet (TotalBsmtSF) \n"
-        f"* 2nd Floor Area in squarefeet (2ndFlrSF) \n"
-        f"* Garage Area in squarefeet (GarageArea) \n"
-    )
-
     # evaluate performance on train and test set
     st.write("---")
     st.write("### Pipeline Performance")
