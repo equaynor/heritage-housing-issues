@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
-from src.data_management import load_house_prices_data, load_pkl_file
+import numpy as np
+from src.data_management import load_house_prices_data, load_heritage_data, load_pkl_file
 from src.machine_learning.predictive_analysis_ui import predict_sale_price
 
 def page_sale_price_predictor_body():
@@ -24,17 +25,19 @@ def page_sale_price_predictor_body():
 
     if st.button("Predict Price"):
         prediction = predict_sale_price(user_input, features, model)
-        st.success(f"Predicted Sale Price: ${prediction:,.2f}")
+        # st.success(f"Predicted Sale Price: ${prediction:,.2f}")
 
     st.write("---")
 
     # Inherited houses section
     st.write("## Inherited Houses Valuation")
-    inherited_data = load_house_prices_data().filter(features)
+    inherited_data = load_heritage_data().filter(features)
+    st.write("* Top-features of Inherited Houses")
     st.write(inherited_data)
 
     if st.button("Value Inherited Houses"):
-        total_value = sum(predict_sale_price(inherited_data.iloc[[i]], features, model) for i in range(len(inherited_data)))
+        predictions = predict_sale_price(inherited_data, features, model)
+        total_value = np.sum(predictions)
         st.success(f"Total Value of Inherited Houses: ${total_value:,.2f}")
 
 def get_user_input():
