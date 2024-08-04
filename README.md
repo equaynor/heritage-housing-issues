@@ -28,14 +28,15 @@
     - [Page 4: Hypothesis and Validation](#page-4-hypothesis-and-validation)
     - [Page 5: Machine Learning Model](#page-5-machine-learning-model)
 8. [Unfixed Bugs](#8-unfixed-bugs)
-9. [Deployment](#9-deployment)
-10. [Technologies](#10-technologies)
+9. [PEP8 Compliance Testing](#9-pep8-compliance-testing)
+10. [Deployment](#10-deployment)
+11. [Technologies](#11-technologies)
     - [Development and Deployment](#development-and-deployment)
     - [Main Data Analysis and Machine Learning](#main-data-analysis-and-machine-learning)
-11. [Credits](#11-credits)
+12. [Credits](#12-credits)
     - [Sources of code](#sources-of-code)
     - [Media](#media)
-12. [Acknowledgements](#12-acknowledgements)
+    - [Acknowledgements](#acknowledgements)
 
 ## **1. Introduction**
 
@@ -318,7 +319,11 @@ This page provides an overview of the machine learning model used to predict the
 
 The app does not currently contain any unfixed bugs.
 
-## **9. Deployment**
+## **9. PEP8 Compliance Testing**
+
+All python files where passed through the [CI Python Linter](https://pep8ci.herokuapp.com/). Those files incuded the `app_pages` files and the files in the `src` folder. A few small errors were fixed, such as long lines or trailing white spaces. Finally, no errors were detected.
+
+## **10. Deployment**
 
 ### Heroku
 
@@ -333,7 +338,7 @@ The app does not currently contain any unfixed bugs.
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
 6. If the slug size is too large then add large files not required for the app to the .slugignore file.
 
-## **10. Technologies
+## **11. Technologies
 
 This section provides an overview of the tools and technologies used to complete this project.
 
@@ -367,7 +372,7 @@ This section provides an overview of the tools and technologies used to complete
 - [XGBoost](https://xgboost.readthedocs.io/en/stable/) was used for the XGBoostRegressor algorithm.
 
 
-## **11. Credits**
+## **12. Credits**
 
 This project drew upon various sources of code to inform its development. Specifically:
 
