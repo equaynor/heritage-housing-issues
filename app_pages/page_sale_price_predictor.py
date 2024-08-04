@@ -23,10 +23,10 @@ def page_sale_price_predictor_body():
 
     # User input section
     st.write("## Enter House Details")
-    user_input = get_user_input()
+    X_live = DrawInputsWidgets()()
 
     if st.button("Predict Price"):
-        prediction = predict_sale_price(user_input, features, model)
+        prediction = predict_sale_price(X_live, features, model)
         # st.success(f"Predicted Sale Price: ${prediction:,.2f}")
 
     st.write("---")
@@ -42,7 +42,7 @@ def page_sale_price_predictor_body():
         total_value = np.sum(predictions)
         st.success(f"Total Predicted Value of Inherited Houses: ${total_value:,.2f}")
 
-def get_user_input():
+def DrawInputsWidgets()():
     """
     Creates a Streamlit interface to collect user input for house price prediction.
     Returns a DataFrame with user-provided values for selected features.
@@ -58,7 +58,7 @@ def get_user_input():
     col3, col4 = st.beta_columns(2)
 
     # We initialize an empty DataFrame for live data
-    user_input = pd.DataFrame([], index=[0])
+    X_live = pd.DataFrame([], index=[0])
 
     # We create input widgets for each feature
     with col1:
@@ -70,7 +70,7 @@ def get_user_input():
             value=int(df[feature].median()),
             step=1
         )
-        user_input[feature] = widget
+        X_live[feature] = widget
 
     with col2:
         feature = "TotalBsmtSF"
@@ -81,7 +81,7 @@ def get_user_input():
             value=int(df[feature].median()),
             step=20
         )
-        user_input[feature] = widget
+        X_live[feature] = widget
 
     with col3:
         feature = "2ndFlrSF"
@@ -92,7 +92,7 @@ def get_user_input():
             value=int(df[feature].median()),
             step=20
         )
-        user_input[feature] = widget
+        X_live[feature] = widget
 
     with col4:
         feature = "GarageArea"
@@ -103,6 +103,6 @@ def get_user_input():
             value=int(df[feature].median()),
             step=20
         )
-        user_input[feature] = widget
+        X_live[feature] = widget
 
-    return user_input
+    return X_live
