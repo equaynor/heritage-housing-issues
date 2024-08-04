@@ -312,15 +312,19 @@ This page provides an overview of the machine learning model used to predict the
 
 [Insert screenshots of Page 5]
 
-## Unfixed Bugs
+## **8. Unfixed Bugs**
 
-* You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not valid reason to leave bugs unfixed.
+The app does not currently contain any unfixed bugs.
 
-## Deployment
+## **9. PEP8 Compliance Testing**
+
+All python files where passed through the [CI Python Linter](https://pep8ci.herokuapp.com/). Those files incuded the `app_pages` files and the files in the `src` folder. A few small errors were fixed, such as long lines or trailing white spaces. Finally, no errors were detected.
+
+## **10. Deployment**
 
 ### Heroku
 
-* The App live link is: <https://YOUR_APP_NAME.herokuapp.com/>
+* The App live link is: [Property Price Predictor](https://property-price-predictor-6342850451bd.herokuapp.com/)
 * Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
 * The project was deployed to Heroku using the following steps.
 
@@ -331,28 +335,64 @@ This page provides an overview of the machine learning model used to predict the
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
 6. If the slug size is too large then add large files not required for the app to the .slugignore file.
 
-## Main Data Analysis and Machine Learning Libraries
+## **11. Technologies
 
-* Here you should list the libraries you used in the project and provide example(s) of how you used these libraries.
+This section provides an overview of the tools and technologies used to complete this project.
 
-## Credits
+### Development and Deployment
 
-* In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism.
-* You can break the credits section up into Content and Media, depending on what you have included in your project.
+- [GitHub](https://github.com/) was used to create the project repository, story project files and record commits.
+- [Code Anywhere](https://codeanywhere.com/) served as the development environment.
+- [Jupyter Notebooks](https://jupyter.org/) were utilized for data analysis, engineering, and model development.
+  - In the terminal type `jupyter notebook --NotebookApp.token='' --NotebookApp.password=''` to start the jupyter server.
+- [Heroku](https://www.heroku.com/) was used to deploy the project.
+- [Kaggle](https://www.kaggle.com/) provided access to the dataset
+- [Streamlit](https://streamlit.io/) was employed to create the online app interface.
 
-### Content
+### Main Data Analysis and Machine Learning
 
-* The text for the Home page was taken from Wikipedia Article A
-* Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-* The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+- [NumPy](https://numpy.org/) was used for mathematical operations, such as calculating means, modes, and standard deviations.
+- [Pandas](https://pandas.pydata.org/) was used for data manipulation, including reading and writing files, inspecting data, and creating and manipulating series and dataframes.
+- [ydata_profiling](https://ydata-profiling.ydata.ai/docs/master/index.html) was used to generate an extensive Profile Report of the dataset.
+- [PPScore](https://pypi.org/project/ppscore/) was used to determine the predictive power score of the data features.
+- [MatPlotLib](https://matplotlib.org/) and [Seaborn](https://seaborn.pydata.org/) were used for constructing plots to visualize the data analysis, specifically the heatmaps, correlation plots and historgram of feature importance.
+- [Feature Engine](https://feature-engine.trainindata.com/en/latest/index.html) was used for various data cleaning and preparation tasks:
+  - Dropping Features, and Imputation of missing variables.
+  - Ordinal Encoding, Numerical Transformations, Assessment of outliers, and Smart Correlation Assessment of variables.
+- [SciKit Learn](https://scikit-learn.org/stable/) was used for machine learning tasks, including:
+  - Splitting train and test sets.
+  - Feature processing and selection.
+  - Gridsearch to determine the optimal regression model.
+  - Gridsearch to determine the optimal hyperparameters.
+  - Model evaluation using R2 score
+  - Principal Component Analysis and evaluation.
+- [XGBoost](https://xgboost.readthedocs.io/en/stable/) was used for the XGBoostRegressor algorithm.
 
-### Media
 
-* The photos used on the home and sign-up page are from This Open Source site
-* The images used for the gallery page were taken from this other open-source site
+## **12. Credits**
 
-## Acknowledgements (optional)
+This project drew upon various sources of code to inform its development. Specifically:
+
+*  The CI Churnometer Walkthrough Project and CI course content provided inspiration for several functions and  classes, including:
+* Hyperparameter optimization search
+* Feature importance analysis
+* Evaluation of train and test sets
+* Predictive power score (PPS) and correlation analysis and plots
+* Missing data evaluation
+* Data cleaning effect
+* These code snippets were incorporated into the Jupyter Notebooks used during the project's development process.
+* The CI Churnometer Walkthrough Project also served as a template for the Streamlit pages, which were modified and adapted for use in this project.
+* More broadly, the walkthrough project provided a general framework for the project's layout and flow, guiding the development process.
+
+### **Acknowledgements**
 
 
-* In case you would like to thank the people that provided support through this project.
+Many thanks and appreciation go to the following sources and people:
+
+- Several past projects provided valuable additional information on how to complete a successful project:
+  - Heritage Housing Issues project by Amare Teklay Hailu [Link](https://github.com/Amareteklay/heritage-housing-issues)
+  - Heritage Housing Issues project by Ulrieke Riem [Link](https://github.com/URiem/heritage-housing-PP5/tree/main)
+- The Slack community has, as always, been invaluable in answering questions. For this project a particular thank you to Niel McEwen. As the moderator of the Predictive Analytics PP5 Slack channel he was the main person to help resolve several technical issues.
+- My mentor Mo Shami provided great feedback on how to improve the project in our mentor meetings.
+- As always a big thank you to my wife, Tasha, for her continued, unwavering support!
 
