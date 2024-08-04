@@ -173,7 +173,7 @@ We propose the following hypotheses to explain the relationship between house at
 3. **Accuracy Hypothesis:** We hypothesize that our model will achieve a sale price prediction accuracy with an R2 value of at least 0.8.
     * Hypothesis confirmed by reaching R2 scores of 0.871 for the train set and 0.809 for the test set.
 
-## **5. Rationale to map the business requirements to the Data Visualisations and ML tasks**
+## **5. Rationale to map the business requirements to the Data Visualizations and ML tasks**
 
 - **Business Requirement 1 (BR1):** Data Visualization and Correlation Study
     
