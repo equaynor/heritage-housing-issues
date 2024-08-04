@@ -42,27 +42,32 @@ def page_predict_price_ml_body():
 
     # show pipelines
     st.write("---")
-    st.write("#### There are 2 ML Pipelines arranged in series.")
-
-    st.write(" * The first is responsible for data cleaning and feature engineering.")
-    st.write(churn_pipe_dc_fe)
-
-    st.write("* The second is for feature scaling and modelling.")
-    st.write(churn_pipe_model)
+    st.write("**ML pipeline to predict property sale prices.**")
+    st.code(sale_price_pipe)
 
     # show feature importance plot
     st.write("---")
-    st.write("* The features the model was trained and their importance.")
+    st.write("**The features the model was trained on and their importance.**")
     st.write(X_train.columns.to_list())
-    st.image(churn_feat_importance)
+    st.image(sale_price_feat_importance)
 
-    # We don't need to apply dc_fe pipeline, since X_train and X_test
-    # were already transformed in the jupyter notebook (Predict Customer Churn.ipynb)
+    st.write(
+        f"The model was ultimately trained on  the following four features: \n"
+        f"* Overall Quality (OverallQual) \n"
+        f"* Total Basement Area in squarefeet (TotalBsmtSF) \n"
+        f"* 2nd Floor Area in squarefeet (2ndFlrSF) \n"
+        f"* Garage Area in squarefeet (GarageArea) \n"
+    )
 
     # evaluate performance on train and test set
     st.write("---")
     st.write("### Pipeline Performance")
-    clf_performance(X_train=X_train, y_train=y_train,
-                    X_test=X_test, y_test=y_test,
-                    pipeline=churn_pipe_model,
-                    label_map=["No Churn", "Yes Churn"])
+    regression_performance(X_train=X_train, y_train=y_train,
+                           X_test=X_test, y_test=y_test,
+                           pipeline=sale_price_pipe)
+
+    st.write("**Regression Performance Plots**")
+    regression_evaluation_plots(X_train=X_train, y_train=y_train,
+                                X_test=X_test,
+                                y_test=y_test, pipeline=sale_price_pipe,
+                                alpha_scatter=0.5)
