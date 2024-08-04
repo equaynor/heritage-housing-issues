@@ -1,24 +1,12 @@
-## Cloud IDE Reminders
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In your Cloud IDE, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with *Regenerate API Key*.
-
 # Heritage Housing Issues
 
 **Data Analysis and Predictive Modelling Study**
 
 **Developed by: Emmanuel Quaynor**
 
-![I am responsive image](#)
+![I am responsive image](docs/screenshots//iamresponsive.png)
 
-**Live Site:** [Live webpage](#)
+**Live Site:** [Live webpage](https://property-price-predictor-6342850451bd.herokuapp.com/)
 
 **Link to Repository:** [Repository](https://github.com/equaynor/heritage-housing-issues)
 
@@ -40,15 +28,14 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
     - [Page 4: Hypothesis and Validation](#page-4-hypothesis-and-validation)
     - [Page 5: Machine Learning Model](#page-5-machine-learning-model)
 8. [Unfixed Bugs](#8-unfixed-bugs)
-9. [PEP8 Compliance Testing](#9-pep8-compliance-testing)
-10. [Deployment](#10-deployment)
-11. [Technologies](#11-technologies)
+9. [Deployment](#9-deployment)
+10. [Technologies](#10-technologies)
     - [Development and Deployment](#development-and-deployment)
     - [Main Data Analysis and Machine Learning](#main-data-analysis-and-machine-learning)
-12. [Credits](#12-credits)
+11. [Credits](#11-credits)
     - [Sources of code](#sources-of-code)
     - [Media](#media)
-13. [Acknowledgements](#13-acknowledgements)
+12. [Acknowledgements](#12-acknowledgements)
 
 ## **1. Introduction**
 
@@ -193,13 +180,13 @@ We propose the following hypotheses to explain the relationship between house at
     - We will analyze the distribution of sale prices in the dataset to gain insights into its characteristics.
     - We will investigate the relationships between various attributes and sale prices using Pearson and Spearman correlation analysis.
     - We will visualize the key variables to understand their impact on sale prices.
-    - The [Correlation Study notebook](#) addresses this business requirement.
+    - The [Correlation Study notebook](https://github.com/equaynor/heritage-housing-issues/blob/main/jupyter_notebooks/03_correlation_study.ipynb) addresses this business requirement.
 
 - **Business Requirement 2 (BR2):** Regression Analysis
     
     - Since the target variable is continuous, we will employ regression analysis to predict sale prices. If the model performance is poor, we may consider alternative approaches.
     - We aim to identify the most influential attributes driving sale prices, enabling our customer to optimize pricing strategies. We may use Principal Component Analysis (PCA) to identify these variables.
-    - The [Modeling and Evaluation notebook](#) addresses this business requirement.
+    - The [Modeling and Evaluation notebook](https://github.com/equaynor/heritage-housing-issues/blob/main/jupyter_notebooks/05_model_and_evaluation.ipynb) addresses this business requirement.
 
 
 ## **6. ML Business Case**
@@ -271,7 +258,10 @@ This page provides a brief introduction to the project, including:
 - A statement of the business requirements and how they are addressed in the project
 - Links to additional resources and information
 
-[Insert screenshot of Page 1]
+<details>
+<summary>Project Summary Page Screenshot</summary>
+<img src="docs/screenshots/project_summary.png" width="60%">
+</details>
 
 ### **Page 2: Correlation Analysis**
 
@@ -282,7 +272,10 @@ This page provides an in-depth analysis of the relationships between house attri
 - Options to view histograms and scatterplots of the most important predictive features
 - A feature to view Predictive Power Score analysis
 
-[Insert screenshots of correlation analysis plots]
+<details>
+<summary>Correlation Analysis Page Screenshot</summary>
+<img src="docs/screenshots/correlation_analysis.png" width="60%">
+</details>
 
 ### **Page 3: Sale Price Prediction**
 
@@ -292,7 +285,10 @@ This page allows our client to predict the sale price of her inherited houses an
 - A display of the predicted sale price
 - A feature to predict the sale prices of the client's specific data in relation to her inherited properties
 
-[Insert screenshot of Page 3]
+<details>
+<summary>Sale Price Prediction Page Screenshot</summary>
+<img src="docs/screenshots/price_prediction.png" width="60%">
+</details>
 
 ### **Page 4: Hypothesis Validation**
 
@@ -300,7 +296,10 @@ This page presents the results of our hypothesis validation, including:
 
 - A list of the project's hypotheses and how they were validated
 
-[Insert screenshot of Page 4]
+<details>
+<summary>Hypotheses Page Screenshot</summary>
+<img src="docs/screenshots/hypotheses.png" width="60%">
+</details>
 
 ### **Page 5: Machine Learning Model**
 
@@ -310,17 +309,16 @@ This page provides an overview of the machine learning model used to predict the
 - A demonstration of feature importance
 - A review of the pipeline performance
 
-[Insert screenshots of Page 5]
+<details>
+<summary>Machine Learning Model Page Screenshot</summary>
+<img src="docs/screenshots/ml_model.png" width="60%">
+</details>
 
 ## **8. Unfixed Bugs**
 
 The app does not currently contain any unfixed bugs.
 
-## **9. PEP8 Compliance Testing**
-
-All python files where passed through the [CI Python Linter](https://pep8ci.herokuapp.com/). Those files incuded the `app_pages` files and the files in the `src` folder. A few small errors were fixed, such as long lines or trailing white spaces. Finally, no errors were detected.
-
-## **10. Deployment**
+## **9. Deployment**
 
 ### Heroku
 
@@ -335,7 +333,7 @@ All python files where passed through the [CI Python Linter](https://pep8ci.hero
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
 6. If the slug size is too large then add large files not required for the app to the .slugignore file.
 
-## **11. Technologies
+## **10. Technologies
 
 This section provides an overview of the tools and technologies used to complete this project.
 
@@ -369,7 +367,7 @@ This section provides an overview of the tools and technologies used to complete
 - [XGBoost](https://xgboost.readthedocs.io/en/stable/) was used for the XGBoostRegressor algorithm.
 
 
-## **12. Credits**
+## **11. Credits**
 
 This project drew upon various sources of code to inform its development. Specifically:
 
@@ -391,7 +389,7 @@ Many thanks and appreciation go to the following sources and people:
 
 - Several past projects provided valuable additional information on how to complete a successful project:
   - Heritage Housing Issues project by Amare Teklay Hailu [Link](https://github.com/Amareteklay/heritage-housing-issues)
-  - Heritage Housing Issues project by Ulrieke Riem [Link](https://github.com/URiem/heritage-housing-PP5/tree/main)
+  - Heritage Housing Issues project by Ulrike Riemenschneider [Link](https://github.com/URiem/heritage-housing-PP5/tree/main)
 - The Slack community has, as always, been invaluable in answering questions. For this project a particular thank you to Niel McEwen. As the moderator of the Predictive Analytics PP5 Slack channel he was the main person to help resolve several technical issues.
 - My mentor Mo Shami provided great feedback on how to improve the project in our mentor meetings.
 - As always a big thank you to my wife, Tasha, for her continued, unwavering support!
