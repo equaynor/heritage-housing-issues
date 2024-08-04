@@ -181,7 +181,7 @@ We propose the following hypotheses to explain the relationship between house at
 
 1.  **Size Hypothesis:** Larger properties tend to have higher sale prices. We will investigate correlations between attributes related to house size (e.g. square footage, number of bedrooms) and sale price to validate this hypothesis.
 2. **Quality Hypothesis:** Higher quality ratings are associated with higher sale prices. We will examine correlations between variables related to house quality (e.g. kitchen quality, overall quality) and sale price to test this hypothesis.
-3. **Time Hypothesis:** The age of the property and recent renovations can significantly impact its value. We will study the relationship between the year the house was built, recent remodels, and sale price to validate this hypothesis.
+3. **Accuracy Hypothesis:** We hypothesize that our model will achieve a sale price prediction accuracy with an R2 value of at least 0.8.
 
 ## **5. Rationale to map the business requirements to the Data Visualisations and ML tasks**
 
