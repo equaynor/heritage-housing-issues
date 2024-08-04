@@ -2,18 +2,18 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error 
+from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 import numpy as np
 
 # code copied from "Modeling and Evaluation" notebooks
 
 
-def regression_performance(X_train, y_train, X_test, y_test,pipeline):
-	st.write("Model Evaluation \n")
-	st.info("* Train Set")
-	regression_evaluation(X_train,y_train,pipeline)
-	st.info("* Test Set")
-	regression_evaluation(X_test,y_test,pipeline)
+def regression_performance(X_train, y_train, X_test, y_test, pipeline):
+    st.write("Model Evaluation \n")
+    st.info("* Train Set")
+    regression_evaluation(X_train, y_train, pipeline)
+    st.info("* Test Set")
+    regression_evaluation(X_test, y_test, pipeline)
 
 
 def regression_evaluation(X, y, pipeline):

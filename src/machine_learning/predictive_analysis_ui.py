@@ -11,14 +11,9 @@ def predict_sale_price(X_live, house_features, sale_price_pipeline):
 
     # Create a logic to display the results
     statement = (
-        f"* Given the values provided for the property features, the model has "
-        f"  predicted a sale value of: **${round(sale_price_prediction[0]):,.2f}**"
+        f"* Given the values provided for the property features, the model has\
+        predicted a sale value of: **${round(sale_price_prediction[0]):,.2f}**"
     )
-
-    # statement_inheritance = (
-    #     f"* Given the values of the inherited properties features, the model has "
-    #     f"  predicted a sale value of: {round(sale_price_prediction[0])}"
-    # )
 
     if len(sale_price_prediction) == 1:
         st.success(statement)
