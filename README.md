@@ -180,8 +180,11 @@ These steps can be matched up nicely to 6 Epics in the Agile development process
 We propose the following hypotheses to explain the relationship between house attributes and sale price:
 
 1.  **Size Hypothesis:** Larger properties tend to have higher sale prices. We will investigate correlations between attributes related to house size (e.g. square footage, number of bedrooms) and sale price to validate this hypothesis.
+    * Hypothesis confirmed by extensive Correlation Study. The strongest correlating features are: '1stFlrSF', 'GarageArea', 'GrLivArea' and 'TotalBsmtSF'.
 2. **Quality Hypothesis:** Higher quality ratings are associated with higher sale prices. We will examine correlations between variables related to house quality (e.g. kitchen quality, overall quality) and sale price to test this hypothesis.
+    * Hypothesis confirmed by extensive Correlation Study. The strongest correlating features are: 'KitchenQual_TA' and 'OverallQual'.
 3. **Accuracy Hypothesis:** We hypothesize that our model will achieve a sale price prediction accuracy with an R2 value of at least 0.8.
+    * Hypothesis confirmed by reaching R2 scores of 0.871 for the train set and 0.809 for the test set.
 
 ## **5. Rationale to map the business requirements to the Data Visualisations and ML tasks**
 
