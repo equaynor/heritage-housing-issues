@@ -1,36 +1,44 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-from src.data_management import load_telco_data, load_pkl_file
-from src.machine_learning.evaluate_clf import clf_performance
+from src.data_management import load_house_prices_data, load_pkl_file
+from src.machine_learning.evaluate_reg import (
+    regression_performance,
+    regression_evaluation_plots)
 
 
-def page_predict_churn_body():
+def page_predict_price_ml_body():
 
     version = 'v1'
     # load needed files
-    churn_pipe_dc_fe = load_pkl_file(
-        f'outputs/ml_pipeline/predict_churn/{version}/clf_pipeline_data_cleaning_feat_eng.pkl')
-    churn_pipe_model = load_pkl_file(
-        f"outputs/ml_pipeline/predict_churn/{version}/clf_pipeline_model.pkl")
-    churn_feat_importance = plt.imread(
-        f"outputs/ml_pipeline/predict_churn/{version}/features_importance.png")
-    X_train = pd.read_csv(
-        f"outputs/ml_pipeline/predict_churn/{version}/X_train.csv")
-    X_test = pd.read_csv(
-        f"outputs/ml_pipeline/predict_churn/{version}/X_test.csv")
-    y_train = pd.read_csv(
-        f"outputs/ml_pipeline/predict_churn/{version}/y_train.csv").values
-    y_test = pd.read_csv(
-        f"outputs/ml_pipeline/predict_churn/{version}/y_test.csv").values
-
-    st.write("### ML Pipeline: Predict Prospect Churn")
-    # display pipeline training summary conclusions
-    st.info(
-        f"* The pipeline was tuned aiming at least 0.80 Recall on 'Yes Churn' class, "
-        f"since we are interested in this project in detecting a potential churner. \n"
-        f"* The pipeline performance on train and test set is 0.90 and 0.85, respectively."
+    sale_price_pipe = load_pkl_file(
+        f"outputs/ml_pipeline/predict_sale_price/{version}/regression_pipeline.pkl"
     )
+    sale_price_feat_importance = plt.imread(
+        f"outputs/ml_pipeline/predict_sale_price/{version}/features_importance.png"
+    )
+    X_train = pd.read_csv(
+        f"outputs/ml_pipeline/predict_sale_price/{version}/X_train.csv")
+    X_test = pd.read_csv(
+        f"outputs/ml_pipeline/predict_sale_price/{version}/X_test.csv")
+    y_train = pd.read_csv(
+        f"outputs/ml_pipeline/predict_sale_price/{version}/y_train.csv")
+    y_test = pd.read_csv(
+        f"outputs/ml_pipeline/predict_sale_price/{version}/y_test.csv")
+
+    st.write("### ML Pipeline: Predict Property Sale Price")
+    # display pipeline training summary conclusions
+    st.success(
+        f"* We successfully trained a Regressor model to predict the sale price of "
+        f"properties in Ames, Iowa, meeting our project requirement (BR2) of an R2 Score "
+        f"of 0.8 or better.\n"
+        f"* Through a hyperparameter search and feature engineering process, "
+        f"we achieved an R2 Score of 0.871 on the train set and 0.809 on the test set, "
+        f"demonstrating the model's strong predictive power.\n"
+        f"* Our model identified the most important features contributing to the sale "
+        f"price, and we present the pipeline steps, feature importance plot, and "
+        f"performance reports below for further insight."
+        )
 
     # show pipelines
     st.write("---")
