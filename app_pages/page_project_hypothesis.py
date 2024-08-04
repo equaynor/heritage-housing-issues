@@ -1,7 +1,9 @@
 import streamlit as st
 
 def page_project_hypothesis_body():
-
+    """
+    Displays a Streamlit page for project hypotheses and their validation.
+    """
     st.write("### Project Hypotheses and Validation")
 
     # conclusions taken from "03 - Correlation_Study" notebook 
