@@ -23,7 +23,7 @@ def page_sale_price_predictor_body():
 
     # User input section
     st.write("## Enter House Details")
-    X_live = DrawInputsWidgets()()
+    X_live = DrawInputsWidgets()
 
     if st.button("Predict Price"):
         prediction = predict_sale_price(X_live, features, model)
@@ -42,7 +42,7 @@ def page_sale_price_predictor_body():
         total_value = np.sum(predictions)
         st.success(f"Total Predicted Value of Inherited Houses: ${total_value:,.2f}")
 
-def DrawInputsWidgets()():
+def DrawInputsWidgets():
     """
     Creates a Streamlit interface to collect user input for house price prediction.
     Returns a DataFrame with user-provided values for selected features.
