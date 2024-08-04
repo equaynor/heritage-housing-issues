@@ -13,7 +13,10 @@ from feature_engine.encoding import OneHotEncoder
 
 
 def page_correlation_analysis_body():
-
+    """
+    Displays a Streamlit page for correlation analysis of house sale prices.
+    Provides interactive visualizations to explore relationships between variables and sale price.
+    """
     # load data
     df = load_cleaned_house_prices_data()
 
@@ -134,6 +137,9 @@ def plot_target_hist(df, target_var):
 
 # function created using "03_correlation_study" notebook code - "Distribution of SalePrice" section
 def sale_price_per_variable(df_eda):
+    """
+    Plots the relationship between each variable and the sale price.
+    """
     target_var = 'SalePrice'
     time = ['YearBuilt', 'YearRemodAdd']
     # from correlation study notebook
@@ -235,6 +241,7 @@ def heatmap_pps(df, threshold, figsize=(20, 12), font_annot=8):
                            linewidth=0.05, linecolor='grey')
         plt.ylim(len(df.columns), 0)
         st.pyplot(fig)
+
 
 # Barplots
 
