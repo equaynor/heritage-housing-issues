@@ -231,12 +231,6 @@ Our pipeline will consist of the following steps:
 
 Our model will be useful for our client, who wants to predict the sale price of her inherited houses, as well as for other users who want to estimate the sale price of their own properties. The model can be accessed online, and users can input data for their homes to get a predicted sale price.
 
-
-<details>
-<summary> Pipeline steps</summary>
-<img src="docs/screenshots/pipeline steps.png">
-</details>
-
 ## **7. Dashboard Design**
 
 Our dashboard is designed to provide an intuitive and user-friendly interface for our client to explore the relationships between house attributes and sale prices, as well as to predict the sale price of her inherited houses and other houses in Ames, Iowa.
