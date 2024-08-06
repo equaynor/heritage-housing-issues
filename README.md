@@ -17,7 +17,6 @@
 2. [Dataset Content](#2-dataset-content)
 3. [Business Requirements](#3-business-requirements)
     - [CRISP-DM Workflow](#crisp-dm-workflow)
-    - [User Stories](#user-stories)
 4. [Hypotheses and Validation](#4-hypotheses-and-validation) 
 5. [Rationale to map the business requirements to the Data Visualizations and ML tasks](#5-rationale-to-map-the-business-requirements-to-the-data-visualizations-and-ml-tasks)
 6. [ML Business Case](#6-ml-business-case)
