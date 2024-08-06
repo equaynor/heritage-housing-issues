@@ -109,6 +109,8 @@ To address these business requirements, we will break down the project into mana
 #### **Epic 2: Data Understanding (CRISP-DM Phase 2)**
 
 ---
+**US1:** As a client, I want to discover which attributes of a house are most correlated with its sale price, so that I can understand the key drivers of sale price. (Business Requirement Covered: BR1)
+
 
 - **Collect and Load the Dataset**: Load the dataset and explore its structure, content, and summary statistics.
 - **Explore the Data**: Use visualization and summary statistics to understand the distribution of variables and their relationships.
@@ -127,6 +129,7 @@ To address these business requirements, we will break down the project into mana
 #### **Epic 4: Modeling (CRISP-DM Phase 4)**
 
 ---
+**US2:** As a technical user, I want to understand the machine learning model used to predict the sale price, so that I can trust the accuracy of the predictions. (Business Requirement Covered: BR2)
 
 - **Choose a Model**: Select a suitable machine learning algorithm for the problem (e.g., linear regression, decision trees, random forest).
 - **Train the Model**: Train the model on the training data.
@@ -136,6 +139,7 @@ To address these business requirements, we will break down the project into mana
 #### **Epic 5: Evaluation (CRISP-DM Phase 5)**
 
 ---
+**US3:** As a client, I want to have a reliable prediction of the sale price of my inherited houses, so that I can sell them at the maximum total price possible. (Business Requirement Covered: BR2)
 
 - **Evaluate the Model's Performance**: Evaluate the model's performance on the testing data.
 - **Compare Models**: Compare the performance of different models and select the best one.
@@ -144,24 +148,13 @@ To address these business requirements, we will break down the project into mana
 #### **Epic 6: Deployment (CRISP-DM Phase 6)**
 
 ---
+**US4:** As a client, I want to have a user-friendly dashboard to input house data and receive predicted sale prices, so that I can easily make informed decisions about pricing and selling. (Business Requirement Covered: BR2)
 
 - **Create a Dashboard**: Create a dashboard to visualize the model's predictions and insights.
 - **Deploy the Model**: Deploy the model in a production-ready environment (e.g., Flask, Django, Streamlit).
 - **Monitor and Update the Model**: Monitor the model's performance and update it as necessary to maintain its accuracy.
 
 These steps can be matched up nicely to 6 Epics in the Agile development process. As we move along the pipeline of the development process we may flow back and forth between stages/epics as we learn new insight and have to revisit previous step in order to refine the development. While ultimately moving towards the final delivery of a product that satisfies the users/clients requirements.
-
-### User Stories
-
-**US1:** As a client, I want to discover which attributes of a house are most correlated with its sale price, so that I can understand the key drivers of sale price. (Business Requirement Covered: BR1)
-
-**US2:** As a client, I want to have a reliable prediction of the sale price of my inherited houses, so that I can sell them at the maximum total price possible. (Business Requirement Covered: BR2)
-
-**US3:** As a technical user, I want to understand the machine learning model used to predict the sale price, so that I can trust the accuracy of the predictions. (Business Requirement Covered: BR2)
-
-**US4:** As a client, I want to visualize the relationships between sale price and other features, so that I can gain insights into the importance of different attributes. (Business Requirement Covered: BR1)
-
-**US5:** As a client, I want to have a user-friendly dashboard to input house data and receive predicted sale prices, so that I can easily make informed decisions about pricing and selling. (Business Requirement Covered: BR2)
 
 ## **4. Hypotheses and Validation**
 
