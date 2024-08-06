@@ -317,6 +317,12 @@ This page provides an overview of the machine learning model used to predict the
 
 ## **8. Unfixed Bugs**
 
+Upon deployment, Heroku no longer supports the Python version 3.8 in it's Heroku-22 stack.
+
+The stack was manually changed in the terminal to Heroku-20 using the following command: heroku stack:set heroku-20 -a your-project-name
+
+However Heroku-20 is deprecated and will become [obsolete](https://devcenter.heroku.com/articles/stack) by April 2025, so this will need to be fixed.
+
 The app does not currently contain any unfixed bugs.
 
 ## **9. PEP8 Compliance Testing**
